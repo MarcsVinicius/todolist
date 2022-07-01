@@ -1,9 +1,8 @@
 const express = require('express');
+const taskControllers = require('../controllers/taskControllers');
 
 const router = express.Router();
 
-router.get('/', (_req, res) => {
-  res.status(200).send('pica');
-});
+router.get('/', taskControllers.getAll);
 
 module.exports = router;
