@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react';
-import fetchAll from './services/fetchAll';
+import React from 'react';
 import Tasks from './components/Tasks';
+import TasksProvider from './context/TasksProvider';
 
 function App() {
-  useEffect(() => {
-    const getApi = async () => {
-      const getAPI = await fetchAll();
-      return getAPI;
-    };
-  });
   return (
-    <main>
+    <TasksProvider>
       <Tasks />
-    </main>
+    </TasksProvider>
   );
 }
 
