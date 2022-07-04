@@ -8,9 +8,7 @@ export default function TasksProvider({ children }) {
 
   const updateAllTasks = async () => {
     const getApi = await fetchAll();
-    setTask(() => (
-      { getApi }
-    ));
+    setTask(() => getApi);
   };
 
   const props = useMemo(() => ({
