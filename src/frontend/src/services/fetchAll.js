@@ -1,9 +1,8 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:3000/task';
+import url from '../utils/index';
 
 export default async function fetchAll() {
-  const result = await axios.get(API_URL)
+  const result = await axios.get(url.api)
     .then((response) => response.data);
 
   return result;
