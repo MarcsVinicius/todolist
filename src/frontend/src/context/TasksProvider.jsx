@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import propTypes from 'prop-types';
 import fetchAll from '../services/fetchAll';
+import fetchFilter from '../services/filterTask';
 import tasksContext from './tasksContext';
 
 export default function TasksProvider({ children }) {
@@ -11,9 +12,15 @@ export default function TasksProvider({ children }) {
     setTask(() => getApi);
   };
 
+  const updateByFilter = async (type) => {
+    const getApi = await fetchFilter(type);
+    setTask(() => getApi);
+  };
+
   const props = useMemo(() => ({
     tasks,
     updateAllTasks,
+    updateByFilter,
   }));
 
   return (

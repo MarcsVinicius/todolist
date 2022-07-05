@@ -28,8 +28,10 @@ export default function TaskInfo({ info }) {
   };
   const handleConfirmBtn = async () => {
     await updateTask(editInput.taskName, info.id, 'task');
-    await updateTask(editInput.status, info.id, 'status');
-    updateAllTasks().then(handleChangeEditBtn);
+    if (editInput.status !== 'none') {
+      await updateTask(editInput.status, info.id, 'status');
+    }
+    updateAllTasks().then((handleChangeEditBtn));
   };
   const handleClickDeleteBtn = async () => {
     await deleteTask(info.id);
@@ -43,7 +45,7 @@ export default function TaskInfo({ info }) {
             <td><input onChange={inputChange} value={editInput.taskName} /></td>
             <td>
               <select name="status" onClick={handleChangeSelect}>
-                <option>Altere o status</option>
+                <option value="none">Altere o status</option>
                 <option value="0">Pendente</option>
                 <option value="1">Em andamento</option>
                 <option value="2">Concluído</option>

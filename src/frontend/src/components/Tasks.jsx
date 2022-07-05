@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import tasksContext from '../context/tasksContext';
 import TaskInfo from './TaskInfo';
 import NewTaskArea from './NewTaskArea';
+import FilterButtons from './FilterButtons';
 
 export default function Tasks() {
   const { tasks, updateAllTasks } = useContext(tasksContext);
@@ -15,6 +16,7 @@ export default function Tasks() {
   return (
     <section>
       <h1>Tasks</h1>
+      <FilterButtons />
       <table>
         <thead>
           <tr>
