@@ -8,7 +8,7 @@ instalar dependencias:
 npm install
 ```
 
-alterar url da api na pasta utils caso necessario(url padrão: http://localhost:3000)
+alterar url da api na pasta utils caso necessario(url padrão: http://localhost:3000/task)
 
 e iniciar o projeto:
 
